@@ -1,0 +1,87 @@
+Note: the first character identifies the resource as either a directory (d) or file (-).
+
+The following nine characters should actually be read as triplets: rw- for the file owner, rw- for the group(s) that have permission to the file, and r-- for all others. What do these symbols mean?
+
+    read (r) = contents can be viewed but not edited, renamed, added, or deleted
+    write (w) = contents can be viewed, edited, renamed, added, and deleted
+    execute (x) = contents can run as a program or script
+    (-) = permissions don’t apply
+
+
+    read 	    4 	r
+    write 	    2 	w
+    execute 	1 	x
+
+
+
+
+/////////////////////////////////////////////useradd carl//////////////// this add a user /////////////////////////////
+
+
+
+
+
+Let’s say we need to modify the owner of a file named sketches.ppt from bob to debbie. We could enter the chown command with the right parameters in the terminal:
+
+chown debbie sketches.ppt
+
+However, if we have admin privileges but are not logged in as the administrator, this command will return an “operation not permitted” error since we don’t have sufficient privileges. But, we can use the handy command sudo in front of the same command to temporarily invoke admin privileges by confirming our identity. We can use the following command:
+
+sudo chown debbie sketches.ppt
+
+and enter our password to prove we are the current authorized user.
+
+
+
+
+
+//////////////////////////////chown command is used to change the owner./////////////////////
+
+
+//////////////////////////////////////////command for the administrator //////////////////////////
+As an administrator, there are commands at your disposal to add, delete, or modify users and groups:
+
+    useradd creates a new user
+    groupadd creates a new group
+    usermod and groupmod can be used to modify users and groups
+    userdel and groupdel can be used to delete users and groups.
+
+
+
+
+
+
+
+
+Additionally, chown and chgrp allow the superuser/admin to change who owns the resource, file, or directory while chmod changes the read-write-execute permission levels. As an example, the following commands would allow an administrator to change the owner of a file named designs.doc to a new user named peter and then modify this file to have read, write, and execute permissions for the user, group, and others.
+
+chown peter designs.doc
+
+chmod 777 designs.doc
+or
+chmod u=rwx,g=rwx,o=rwx designs.doc
+
+Note: We need to be the owner of the file or admin to use chmod.
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////cat and ls command ////////////////////////////////////////////////////////////
+
+
+    cat:
+
+    Purpose: The cat command is primarily used to concatenate and display the contents of files. It reads one or more files and prints their contents to the standard output.
+
+    Example: cat filename.txt would display the contents of the file filename.txt.
+
+    ls -l:
+
+    Purpose: The ls -l command is used to list detailed information about files and directories in a long format. It displays file and directory attributes such as permissions, ownership, size, modification date, and filename.
+
+    Example: ls -l filename.txt would display detailed information about the file filename.txt, including permissions, ownership, size, and modification date.
